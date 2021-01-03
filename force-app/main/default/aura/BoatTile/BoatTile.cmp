@@ -1,0 +1,18 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" access="global" >
+    <aura:attribute name="boat" type="Boat__c"/>
+    <aura:attribute name="selected" type="Boolean" default="false" />
+    <aura:registerevent name="BoatSelect" type="c:BoatSelect" />
+    <aura:registerevent name="BoatSelected" type="c:BoatSelected" />
+    <aura:registerevent name="PlotMapMarker" type="c:PlotMapMarker" />
+
+    <!--div class="{!v.selected == true ? 'tile selected' :'tile' }"-->
+        <lightning:button class="{!v.selected ? 'tile selected' :'tile' }" onclick="{!c.onBoatClick}">
+        <div class="innertile" style="{!'background-image: url('+v.boat.Picture__c+')'}">
+          <div class="lower-third">
+           <h1 class="slds-truncate">{!v.boat.Contact__r.Name}</h1>
+          </div>
+        </div>
+        </lightning:button>
+    <!--/div-->
+                    
+</aura:component>
